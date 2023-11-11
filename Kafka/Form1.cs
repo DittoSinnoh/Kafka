@@ -30,7 +30,7 @@ namespace Kafka
         {
 
         }
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        private void Form1_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             // Проверка, является ли нажатая клавиша цифрой от 0 до 9.
             if (e.KeyChar >= 48 && e.KeyChar <= 57) 
@@ -49,22 +49,22 @@ namespace Kafka
                 } 
             }
         }
-        private void Button1_MouseEnter(object sender, EventArgs e) 
+        private void button1_MouseEnter_1(object sender, EventArgs e) 
         {
             Cursor.Hide(); // При наведении на кнопку курсор исчезает.
         }
-        private void Button1_MouseLeave(object sender, EventArgs e)
+        private void button1_MouseLeave(object sender, EventArgs e)
         {
             Cursor.Show(); // При уведении с кнопки курсор появляется.
         }
-        private void Button1_Click(object sender, EventArgs e)  
+        private void button1_Click(object sender, EventArgs e)  
         {
             // При нажатии на кнопку курсор перемещается на место
             // второй кнопки, а текст нажатой кнопки сменится на "Print".
             Cursor.Position = PointToScreen(button2.Location);
             button1.Text = "&Print";
         }
-        private void Button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             // Короче, тут просто наоботор с перемещением - со второй на первую.
             // А при наведении на вторую кнопку курсор меняется на руку.

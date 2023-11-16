@@ -50,5 +50,24 @@ namespace Kafka
                 }
             }
         }
+
+        private void pictureBox1_LocationChanged_1(object sender, EventArgs e)
+        {
+            if (pictureBox1.Location.X == 90 && pictureBox1.Location.Y == 100)
+            {
+                this.BackgroundImage = null;
+                pictureBox1.Visible = false;
+                garch.Visible = true;
+                ditto.Visible = true;
+                btn1.Visible = true;
+                garch.Location = new System.Drawing.Point(10, 100);
+                ditto.Location = new System.Drawing.Point(270, 10);
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

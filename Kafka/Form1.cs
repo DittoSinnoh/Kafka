@@ -16,5 +16,23 @@ namespace Kafka
         {
             InitializeComponent();
         }
+
+        private int NumberSymbols(string stroka, char symbol)
+        {
+            int k = 0;
+            for (int i = 0; i < stroka.Length; i++)
+            {
+                if (stroka[i] == symbol)
+                {
+                    k += i;
+                }
+                return k;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = NumberSymbols(textBox2.Text, 'а').ToString();
+        }
     }
 }

@@ -33,6 +33,7 @@
             this.garch = new System.Windows.Forms.PictureBox();
             this.ditto = new System.Windows.Forms.PictureBox();
             this.btn1 = new System.Windows.Forms.Button();
+            this.btn2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.garch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ditto)).BeginInit();
@@ -74,13 +75,26 @@
             // 
             // btn1
             // 
-            this.btn1.Location = new System.Drawing.Point(278, 203);
+            this.btn1.Font = new System.Drawing.Font("Impact", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn1.Location = new System.Drawing.Point(134, 100);
             this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(133, 29);
+            this.btn1.Size = new System.Drawing.Size(193, 63);
             this.btn1.TabIndex = 3;
-            this.btn1.Text = "Атака";
+            this.btn1.Text = "Начать";
             this.btn1.UseVisualStyleBackColor = true;
             this.btn1.Visible = false;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
+            // 
+            // btn2
+            // 
+            this.btn2.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn2.Location = new System.Drawing.Point(270, 208);
+            this.btn2.Name = "btn2";
+            this.btn2.Size = new System.Drawing.Size(116, 32);
+            this.btn2.TabIndex = 4;
+            this.btn2.Text = "Атака";
+            this.btn2.UseVisualStyleBackColor = true;
+            this.btn2.Visible = false;
             // 
             // Form1
             // 
@@ -89,6 +103,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(445, 293);
+            this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.ditto);
             this.Controls.Add(this.garch);
@@ -110,6 +125,7 @@
         private System.Windows.Forms.PictureBox garch;
         private System.Windows.Forms.PictureBox ditto;
         private System.Windows.Forms.Button btn1;
+        private System.Windows.Forms.Button btn2;
     }
 }
 

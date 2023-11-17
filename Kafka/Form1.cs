@@ -14,6 +14,8 @@ namespace Kafka
     {
         int x = 100;
         int y = 100;
+        private int speed = 5;
+        private Timer timer;
         public Form1()
         {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace Kafka
             //player.Image = Properties.Resources.arrow;
             pictureBox1.Location = new System.Drawing.Point(x, y);
             this.Controls.Add(pictureBox1);
+
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -53,21 +56,35 @@ namespace Kafka
 
         private void pictureBox1_LocationChanged_1(object sender, EventArgs e)
         {
-            if (pictureBox1.Location.X == 90 && pictureBox1.Location.Y == 100)
+            if (pictureBox1.Location.X == 150 && pictureBox1.Location.Y == 100)
             {
                 this.BackgroundImage = null;
                 pictureBox1.Visible = false;
-                garch.Visible = true;
-                ditto.Visible = true;
+                //garch.Visible = true;
+                //ditto.Visible = true;
                 btn1.Visible = true;
                 garch.Location = new System.Drawing.Point(10, 100);
+                this.Controls.Add(garch);
                 ditto.Location = new System.Drawing.Point(270, 10);
+                this.Controls.Add(ditto);
             }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            garch.Visible = true;
+            ditto.Visible = true;
+            btn1.Visible = false;
+            btn2.Visible = true;
+            garch.Location = new System.Drawing.Point(10, 100);
+            this.Controls.Add(garch);
+            ditto.Location = new System.Drawing.Point(270, 10);
+            this.Controls.Add(ditto);
         }
     }
 }

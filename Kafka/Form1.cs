@@ -22,13 +22,14 @@ namespace Kafka
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Добавляем фильтр, чтобы открывать изображения только в формате .jpg.
             file1.Filter = "(*.jng)|*.jpg";
         }
 
         private void btn_Click(object sender, EventArgs e)
         {
             // Создаём перпеменнную, которая используется
-            // для сохранения имени файла и загрузки файла в элемент PictureBox
+            // для сохранения имени файла и загрузки файла в элемент PictureBox.
             string fname;
             file1.ShowDialog();
             fname = file1.FileName;
@@ -43,20 +44,35 @@ namespace Kafka
 
         private void btn1_Click(object sender, EventArgs e)
         {
+            // Открывается диалоговое окто для сохранения файла
+            // и задаётся фильтр формата.
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "(*.jng)|*.jpg";
             saveFileDialog.ShowDialog();
-            if (saveFileDialog.FileName == "")
+            if (textBox1.Text != null)
             {
-                string filename = saveFileDialog.FileName;
-                string extension = Path.GetExtension(filename);
-                switch(extension)
+                if (saveFileDialog.FileName != "")
                 {
-                    case ".jpg":
-                        pct.Image.Save(filename, ImageFormat.Jpeg);
-                        break;
+                    // System.IO импользуется для создания файла и записи в него двнных.
+                    // FileStream получает поток данных для записи в файл.
+                    // Конкретно тут происходит открытие потока fs.
+                    System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog.OpenFile();
+                    // Эта строка отвечает за сохранение изображения в формате .png.
+                    pct.Image.Save(fs, System.Drawing.Imaging.ImageFormat.Png);
+                    // Закрывает поток.
+                    fs.Close();
                 }
             }
+            else
+            {
+                MessageBox.Show("Изображение отсутствует!");
+            }
+        }
+
+        private void clean_Click(object sender, EventArgs e)
+        {
+            pct.Image = null;
+            textBox1.Text = null;
         }
     }
 }

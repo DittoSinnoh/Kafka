@@ -45,17 +45,22 @@ namespace Kafka
 
         private void btnNewArr_Click(object sender, EventArgs e)
         {
+            ClearFields();
+            // a из поля мин, b из поля макс. r рандом
             int n = 10;
             int a = int.Parse(txtMin.Text);
             int b = int.Parse(txtMax.Text);
             Random r = new Random();
+            // пока i меньше n, массив будет заполняться числами
             for(int i =0; i < n; i++)
             {
                 Arr[i] = r.Next(a, b);
                 lblArr.Text += Arr[i];
                 if (i!=n) lblArr.Text += ", ";
             }
+            // После цикла кнопка сортировки станет доступной.
             btnSort.Enabled = true;
+            ClearTxt();
         }
 
         private void txtMin_TextChanged(object sender, EventArgs e)
@@ -80,7 +85,35 @@ namespace Kafka
         private void btnSort_Click(object sender, EventArgs e)
         {
             int k, t;
-            for 
+            for (int i = 0; i < Arr.Length; i++)
+            {
+                k = MinNumber(Arr, i);
+                t = Arr[i];
+                Arr[i] = Arr[k];
+                Arr[k] = t;
+                lblResult.Text += Arr[i];
+                if (i != Arr.Length - 1)
+                {
+                    lblResult.Text += ", ";
+                }
+            }
+            btnSort.Enabled = false;
+        }
+        private void ClearFields()
+        {
+            lblArr.Text = "";
+            lblResult.Text = "";
+            btnSort.Enabled = false;
+        }
+        private void ClearTxt()
+        {
+            txtMin.Text = "";
+            txtMax.Text = "";
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

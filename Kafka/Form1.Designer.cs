@@ -99,24 +99,23 @@
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Выход";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // lblArr
             // 
             this.lblArr.AutoSize = true;
             this.lblArr.Location = new System.Drawing.Point(28, 25);
             this.lblArr.Name = "lblArr";
-            this.lblArr.Size = new System.Drawing.Size(35, 13);
+            this.lblArr.Size = new System.Drawing.Size(0, 13);
             this.lblArr.TabIndex = 6;
-            this.lblArr.Text = "label1";
             // 
             // lblResult
             // 
             this.lblResult.AutoSize = true;
             this.lblResult.Location = new System.Drawing.Point(28, 27);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(35, 13);
+            this.lblResult.Size = new System.Drawing.Size(0, 13);
             this.lblResult.TabIndex = 7;
-            this.lblResult.Text = "label2";
             this.lblResult.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1

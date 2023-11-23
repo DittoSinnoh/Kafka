@@ -16,7 +16,32 @@ namespace Kafka
         {
             InitializeComponent();
         }
+        // Объявляем массив с 10 элементами.
         private int[] Arr = new int[10];
+
+        // При помощи функции Insertion создаём алгоритм для
+        // выполнения сортировки массива методом вставки.
+        // Функция InsertionSort проходится по массиву, начиная со
+        // второго элемента, и на каждом шаге вставляет текущий элемент
+        // на подходящее место в уже упорядоченную часть массива.
+        private void InsertionSort(int[] Arr)
+        {
+            // Начина со второго элемента, проходимся по всем элемнтам массива.
+            // Length используется для возвращения колличества элементов в массиве.
+            for (int i = 1; i < Arr.Length; i++)
+            {
+                int tea = Arr[i];  // Текущий элемент массива для вставки
+                                   // в упорядоченную часть массива.
+                int val = i - 1;
+                // Происходит до тех пор, пока не выполнится условие.
+                while (val >= 0 && tea < Arr[val])
+                {
+                    Arr[val + 1] = Arr[val];
+                    val--;
+                }
+                Arr[val + 1] = tea;
+            }
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -67,7 +92,7 @@ namespace Kafka
         {
 
         }
-        private int MinNumber(int [] x, int m)
+        /*private int MinNumber(int [] x, int m)
         {
             int min = x[m];
             int MinN = m;
@@ -80,11 +105,15 @@ namespace Kafka
                 }
             }
             return MinN;
-        }    
+        }    */
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            int k, t;
+            // Вызов метода с аргументом массива.
+            InsertionSort(Arr);
+            // При помощи Join объединяем элементы массива и разделяем их.
+            lblResult.Text = string.Join(", ", Arr);
+            /*int k, t;
             for (int i = 0; i < Arr.Length; i++)
             {
                 k = MinNumber(Arr, i);
@@ -96,7 +125,7 @@ namespace Kafka
                 {
                     lblResult.Text += ", ";
                 }
-            }
+            }*/
             btnSort.Enabled = false;
         }
         private void ClearFields()

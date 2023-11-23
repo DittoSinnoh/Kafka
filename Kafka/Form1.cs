@@ -19,20 +19,50 @@ namespace Kafka
 
         private int NumberSymbols(string stroka, char symbol)
         {
+            // 
             int k = 0;
+            // 
             for (int i = 0; i < stroka.Length; i++)
             {
                 if (stroka[i] == symbol)
                 {
-                    k += i;
+                    k += 1;
                 }
-                return k;
             }
+            // 
+            return k;
+        }
+        private int NumberSlog(string stroka)
+        {
+            // Переменная которая хранит кол-во символов
+            int m = 0;
+            // Затем переходит при помощи цикла по каждому символу в строке
+            for (int i = 0; i < stroka.Length - 1; i++)
+            {
+                // Если в строке символ равен М и А значение ma увеличивается на 1
+                if (stroka[i] == 'м' && stroka[i + 1] == 'а')
+                {
+                    m++;
+                }
+            }
+            return m;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox1.Text = NumberSymbols(textBox2.Text, 'а').ToString();
+            if (textBox3.Text == "а" || textBox3.Text == "")
+            {
+                textBox2.Text = NumberSymbols(textBox1.Text, 'а').ToString();
+            }    
+            else if (textBox3.Text == "ма")
+            {
+                textBox2.Text = NumberSlog(textBox1.Text).ToString();
+            }
+            else
+            {
+                MessageBox.Show("Введите либо 'а', либо 'ма'.");
+                return;
+            }
         }
     }
 }

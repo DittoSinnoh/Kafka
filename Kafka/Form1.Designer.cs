@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.garch = new System.Windows.Forms.PictureBox();
             this.ditto = new System.Windows.Forms.PictureBox();
             this.btn1 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.garch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ditto)).BeginInit();
@@ -95,6 +97,12 @@
             this.btn2.Text = "Атака";
             this.btn2.UseVisualStyleBackColor = true;
             this.btn2.Visible = false;
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 50;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -126,6 +134,7 @@
         private System.Windows.Forms.PictureBox ditto;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button btn2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

@@ -14,8 +14,6 @@ namespace Kafka
     {
         int x = 100;
         int y = 100;
-        private int speed = 5;
-        private Timer timer;
         public Form1()
         {
             InitializeComponent();
@@ -85,6 +83,41 @@ namespace Kafka
             this.Controls.Add(garch);
             ditto.Location = new System.Drawing.Point(270, 10);
             this.Controls.Add(ditto);
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void OnTimerTick(object sender, EventArgs e)
+        {
+            x = 10;
+            y = 100;
+            x += 87;
+            y -= 30;
+            if (x > 270 || y < 10)
+            {
+                x = 10;
+                y = 100;
+                timer1.Stop();
+            }
+            garch.Location = new System.Drawing.Point(x, y);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //x = 10;
+            //y = 100;
+            x += 43;
+            y -= 15;
+            if (x > 270 || y < 10)
+            {
+                x = 10;
+                y = 100;
+                timer1.Stop();
+            }
+            garch.Location = new System.Drawing.Point(x, y);
         }
     }
 }

@@ -49,7 +49,7 @@ namespace Kafka
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "(*.jng)|*.jpg";
             saveFileDialog.ShowDialog();
-            if (textBox1.Text != null)
+            if (textBox1.Text != "")
             {
                 if (saveFileDialog.FileName != "")
                 {

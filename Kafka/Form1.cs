@@ -19,45 +19,51 @@ namespace Kafka
 
         private int NumberSymbols(string stroka, char symbol)
         {
-            // 
+            // Вводим переменную для подсчета символов.
             int k = 0;
-            // 
+            // Проходимся по каждому символу в строке.
             for (int i = 0; i < stroka.Length; i++)
             {
+                // Если символ в строке равен symbol, то плюс 1.
                 if (stroka[i] == symbol)
                 {
                     k += 1;
                 }
             }
-            // 
+            // Возврат цикла.
             return k;
         }
         private int NumberSlog(string stroka)
         {
-            // Переменная которая хранит кол-во символов
+            // Вводим переменную для счёта "ма".
             int m = 0;
-            // Затем переходит при помощи цикла по каждому символу в строке
+            // Проходимся по каждому символу в строке, пока она не закончится.
             for (int i = 0; i < stroka.Length - 1; i++)
             {
-                // Если в строке символ равен М и А значение ma увеличивается на 1
+                // Переменная увеличивается на 1, если следующий символ после "м" - "а".
                 if (stroka[i] == 'м' && stroka[i + 1] == 'а')
                 {
                     m++;
                 }
             }
+            // Возврат цикла.
             return m;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // если в поле введена "а" или оно пустое, то
             if (textBox3.Text == "а" || textBox3.Text == "")
             {
+                // в поле выведится количество букв а. ToString для преобразование в строковое значение.
                 textBox2.Text = NumberSymbols(textBox1.Text, 'а').ToString();
-            }    
+            }
+            // Если будет МА, то выведится количество слогов МА.
             else if (textBox3.Text == "ма")
             {
                 textBox2.Text = NumberSlog(textBox1.Text).ToString();
             }
+            // Если вообще ничего из перечисленного, то вывод сообщения и возврат цикла.
             else
             {
                 MessageBox.Show("Введите либо 'а', либо 'ма'.");

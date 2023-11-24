@@ -23,7 +23,7 @@ namespace Kafka
         private void Form1_Load(object sender, EventArgs e)
         {
             // Добавляем фильтр, чтобы открывать изображения только в формате .jpg.
-            file1.Filter = "(*.jng)|*.jpg";
+            file1.Filter = "(*.jpg)|*.jpg";
         }
 
         private void btn_Click(object sender, EventArgs e)
@@ -46,17 +46,16 @@ namespace Kafka
         {
             // Открывается диалоговое окто для сохранения файла
             // и задаётся фильтр формата.
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "(*.jng)|*.jpg";
-            saveFileDialog.ShowDialog();
+            saveFile.Filter = "(*.jpg)|*.jpg";
+            saveFile.ShowDialog();
             if (textBox1.Text != "")
             {
-                if (saveFileDialog.FileName != "")
+                if (saveFile.FileName != "")
                 {
                     // System.IO импользуется для создания файла и записи в него двнных.
                     // FileStream получает поток данных для записи в файл.
                     // Конкретно тут происходит открытие потока fs.
-                    System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog.OpenFile();
+                    System.IO.FileStream fs = (System.IO.FileStream)saveFile.OpenFile();
                     // Эта строка отвечает за сохранение изображения в формате .png.
                     pct.Image.Save(fs, System.Drawing.Imaging.ImageFormat.Png);
                     // Закрывает поток.

@@ -59,6 +59,10 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -167,7 +171,7 @@
             // reys
             // 
             this.reys.AutoSize = true;
-            this.reys.Location = new System.Drawing.Point(12, 163);
+            this.reys.Location = new System.Drawing.Point(9, 160);
             this.reys.Name = "reys";
             this.reys.Size = new System.Drawing.Size(52, 13);
             this.reys.TabIndex = 10;
@@ -176,7 +180,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 188);
+            this.label5.Location = new System.Drawing.Point(12, 24);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 11;
@@ -185,7 +189,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(123, 211);
+            this.label6.Location = new System.Drawing.Point(126, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 12;
@@ -194,16 +198,17 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 211);
+            this.label7.Location = new System.Drawing.Point(12, 46);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 13);
             this.label7.TabIndex = 13;
             this.label7.Text = "Дата отправления";
+            this.label7.Visible = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 233);
+            this.label8.Location = new System.Drawing.Point(12, 68);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(108, 13);
             this.label8.TabIndex = 14;
@@ -212,7 +217,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(123, 233);
+            this.label9.Location = new System.Drawing.Point(126, 68);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 15;
@@ -221,7 +226,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(9, 256);
+            this.label10.Location = new System.Drawing.Point(12, 91);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 13);
             this.label10.TabIndex = 16;
@@ -230,7 +235,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(76, 256);
+            this.label11.Location = new System.Drawing.Point(80, 91);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 17;
@@ -244,10 +249,11 @@
             "Купе",
             "СВ",
             "Для инвалидов"});
-            this.comboType.Location = new System.Drawing.Point(359, 160);
+            this.comboType.Location = new System.Drawing.Point(81, 54);
             this.comboType.Name = "comboType";
             this.comboType.Size = new System.Drawing.Size(80, 21);
             this.comboType.TabIndex = 18;
+            this.comboType.Visible = false;
             // 
             // comboKid
             // 
@@ -274,10 +280,11 @@
             "18",
             "19",
             "20"});
-            this.comboKid.Location = new System.Drawing.Point(359, 225);
+            this.comboKid.Location = new System.Drawing.Point(81, 119);
             this.comboKid.Name = "comboKid";
             this.comboKid.Size = new System.Drawing.Size(61, 21);
             this.comboKid.TabIndex = 19;
+            this.comboKid.Visible = false;
             // 
             // comboVzr
             // 
@@ -304,10 +311,11 @@
             "18",
             "19",
             "20"});
-            this.comboVzr.Location = new System.Drawing.Point(292, 225);
+            this.comboVzr.Location = new System.Drawing.Point(14, 119);
             this.comboVzr.Name = "comboVzr";
             this.comboVzr.Size = new System.Drawing.Size(61, 21);
             this.comboVzr.TabIndex = 20;
+            this.comboVzr.Visible = false;
             // 
             // comboOld
             // 
@@ -334,121 +342,151 @@
             "18",
             "19",
             "20"});
-            this.comboOld.Location = new System.Drawing.Point(426, 225);
+            this.comboOld.Location = new System.Drawing.Point(148, 119);
             this.comboOld.Name = "comboOld";
             this.comboOld.Size = new System.Drawing.Size(61, 21);
             this.comboOld.TabIndex = 21;
+            this.comboOld.Visible = false;
             // 
             // checkBel
             // 
             this.checkBel.AutoSize = true;
-            this.checkBel.Location = new System.Drawing.Point(292, 256);
+            this.checkBel.Location = new System.Drawing.Point(14, 150);
             this.checkBel.Name = "checkBel";
             this.checkBel.Size = new System.Drawing.Size(102, 17);
             this.checkBel.TabIndex = 22;
             this.checkBel.Text = "Наличие белья";
             this.checkBel.UseVisualStyleBackColor = true;
+            this.checkBel.Visible = false;
             // 
             // checkFood
             // 
             this.checkFood.AutoSize = true;
-            this.checkFood.Location = new System.Drawing.Point(400, 256);
+            this.checkFood.Location = new System.Drawing.Point(116, 150);
             this.checkFood.Name = "checkFood";
             this.checkFood.Size = new System.Drawing.Size(113, 17);
             this.checkFood.TabIndex = 23;
             this.checkFood.Text = "Наличие питания";
             this.checkFood.UseVisualStyleBackColor = true;
+            this.checkFood.Visible = false;
             // 
             // checkBag
             // 
             this.checkBag.AutoSize = true;
-            this.checkBag.Location = new System.Drawing.Point(292, 279);
+            this.checkBag.Location = new System.Drawing.Point(14, 173);
             this.checkBag.Name = "checkBag";
             this.checkBag.Size = new System.Drawing.Size(58, 17);
             this.checkBag.TabIndex = 24;
             this.checkBag.Text = "Багаж";
             this.checkBag.UseVisualStyleBackColor = true;
+            this.checkBag.Visible = false;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(325, 130);
+            this.label12.Location = new System.Drawing.Point(47, 24);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(117, 13);
             this.label12.TabIndex = 25;
             this.label12.Text = "Оформление билетов";
+            this.label12.Visible = false;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(289, 163);
+            this.label13.Location = new System.Drawing.Point(11, 57);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(64, 13);
             this.label13.TabIndex = 26;
             this.label13.Text = "Тип вагона";
+            this.label13.Visible = false;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(289, 209);
+            this.label14.Location = new System.Drawing.Point(11, 103);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(58, 13);
             this.label14.TabIndex = 27;
             this.label14.Text = "Взрослые";
+            this.label14.Visible = false;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(356, 209);
+            this.label15.Location = new System.Drawing.Point(78, 103);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(33, 13);
             this.label15.TabIndex = 28;
             this.label15.Text = "Дети";
+            this.label15.Visible = false;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(423, 209);
+            this.label16.Location = new System.Drawing.Point(145, 103);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(71, 13);
             this.label16.TabIndex = 29;
             this.label16.Text = "Пенсионеры";
+            this.label16.Visible = false;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(328, 302);
+            this.button2.Location = new System.Drawing.Point(50, 196);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(128, 23);
             this.button2.TabIndex = 30;
             this.button2.Text = "Расчитать стоимость";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Location = new System.Drawing.Point(20, 179);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(240, 125);
+            this.groupBox1.TabIndex = 31;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Доступные рейсы";
+            this.groupBox1.Visible = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.checkBag);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.checkFood);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.checkBel);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.comboOld);
+            this.groupBox2.Controls.Add(this.comboType);
+            this.groupBox2.Controls.Add(this.comboKid);
+            this.groupBox2.Controls.Add(this.comboVzr);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Location = new System.Drawing.Point(278, 106);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(235, 228);
+            this.groupBox2.TabIndex = 32;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Оформление билетов";
+            this.groupBox2.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 401);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.checkBag);
-            this.Controls.Add(this.checkFood);
-            this.Controls.Add(this.checkBel);
-            this.Controls.Add(this.comboOld);
-            this.Controls.Add(this.comboVzr);
-            this.Controls.Add(this.comboKid);
-            this.Controls.Add(this.comboType);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(526, 345);
             this.Controls.Add(this.reys);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimePicker2);
@@ -460,8 +498,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "ЖДКасса";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -500,6 +544,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 

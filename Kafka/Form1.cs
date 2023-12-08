@@ -25,6 +25,28 @@ namespace Kafka
             reys.Text = rey;
             DateTime chosenDate = dateTimePicker1.Value;
             bool rev;
+            groupBox1.Visible = true;
+            groupBox2.Visible = true;
+            label5.Visible = true;
+            label6.Visible = true;
+            label7.Visible = true;
+            label8.Visible = true;
+            label9.Visible = true;
+            label10.Visible = true;
+            label11.Visible = true;
+            label12.Visible = true;
+            label13.Visible = true;
+            label14.Visible = true;
+            label15.Visible = true;
+            label16.Visible = true;
+            comboType.Visible = true;
+            comboVzr.Visible = true;
+            comboKid.Visible = true;
+            comboOld.Visible = true;
+            checkBel.Visible = true;
+            checkFood.Visible = true;
+            checkBag.Visible = true;
+            button2.Visible = true;
             if (chosenDate.Day % 2 == 0)
             {
                 rev = true;
@@ -113,7 +135,7 @@ namespace Kafka
                 cost = 4840;
                 label11.Text = $"{cost.ToString()} руб";
             }
-            else if (rev == false && rey == "Санкт-Петербур - Екатеринбург")
+            else if (rev == false && rey == "Санкт-Петербург - Екатеринбург")
             {
                 label5.Text = "C74/C75 Санкт-Петербур - Екатеринбург";
                 label6.Text = dateTimePicker1.Value.ToShortDateString();
@@ -147,13 +169,29 @@ namespace Kafka
             }
             else
             {
-                label5.Text = "Ничего не найдено";
-                label6.Text = "";
-                label7.Text = "";
-                label8.Text = "";
-                label9.Text = "";
-                label10.Text = "";
-                label11.Text = "";
+                reys.Text = "Ничего не найдено";
+                groupBox1.Visible = false;
+                groupBox2.Visible = false;
+                label5.Visible = false;
+                label6.Visible = false;
+                label7.Visible = false;
+                label8.Visible = false;
+                label9.Visible = false;
+                label10.Visible = false;
+                label11.Visible = false;
+                label12.Visible = false;
+                label13.Visible = false;
+                label14.Visible = false;
+                label15.Visible = false;
+                label16.Visible = false;
+                comboType.Visible = false;
+                comboVzr.Visible = false;
+                comboKid.Visible = false;
+                comboOld.Visible = false;
+                checkBel.Visible = false;
+                checkFood.Visible = false;
+                checkBag.Visible = false;
+                button2.Visible = false;
             }
         }
 
@@ -183,53 +221,76 @@ namespace Kafka
 
         private void button2_Click(object sender, EventArgs e)
         {
-            double costed;
-            string type = comboType.SelectedItem.ToString();
-            double sale;
-            if (type == "Плацкарт")
+            if (comboType.SelectedItem == null || comboKid.SelectedItem == null || comboVzr.SelectedItem == null || comboOld.SelectedItem == null)
             {
-                sale = cost;
-            }
-            else if (type == "Купе")
-            {
-                sale = cost + cost * 0.3;
-            }
-            else if (type == "СВ")
-            {
-                sale = cost + cost * 0.5;
+                MessageBox.Show("Вы заполнили не все поля!");
             }
             else
             {
-                sale = cost * 0.5;
+                double costed;
+                string type = comboType.SelectedItem.ToString();
+                double sale;
+                if (type == "Плацкарт")
+                {
+                    sale = cost;
+                }
+                else if (type == "Купе")
+                {
+                    sale = cost + cost * 0.3;
+                }
+                else if (type == "СВ")
+                {
+                    sale = cost + cost * 0.5;
+                }
+                else
+                {
+                    sale = cost * 0.5;
+                }
+                int vzr = Convert.ToInt32(comboVzr.SelectedItem);
+                int kid = Convert.ToInt32(comboKid.SelectedItem);
+                int old = Convert.ToInt32(comboOld.SelectedItem);
+                double salevzr = vzr * (sale);
+                double salekid = kid * (sale - sale * 0.05);
+                double saleold = old * (sale - sale * 0.05);
+                int kol = vzr + kid + old;
+                int bel = 0;
+                if (checkBel.Checked)
+                {
+                    bel = kol * 188;
+                }
+                double food = 0;
+                if (checkFood.Checked)
+                {
+                    food = kol * (sale * 0.30);
+                }
+                double bag = 0;
+                if (checkBag.Checked)
+                {
+                    bag = kol * (sale * 0.01);
+                }
+                costed = salevzr + salekid + saleold + bel + food + bag;
+                string off = "нет";
+                if (checkBox1.Checked)
+                {
+                    costed = costed * 2;
+                    off = "да";
+                }
+                string end = $"Стоимость билета: {cost} \n" +
+                    $"Билет туда-обратно: {off} \n" +
+                    $"Тип вагона: {type} \n"+
+                    $"Кол-во человек: {kol} \n" +
+                    $"Взрослые: {vzr} чел. ({salevzr} руб.) \n" +
+                    $"Дети: {kid} чел. ({salekid} руб.) \n" +
+                    $"Пенсионеры: {old} чел. ({saleold} руб.) \n" +
+                    $"Бельё: {bel} руб. \n" +
+                    $"Еда: {food} руб. \n" +
+                    $"Багаж: {bag} руб. \n" +
+                    $"Итого к оплате: {costed.ToString()} руб. \n" +
+                    $"\n" +
+                    $"При посадке обязательно предъявляются \n" +
+                    $"все соответствующие документы!";
+                MessageBox.Show(end, "Итог");
             }
-            int vzr = Convert.ToInt32(comboVzr.SelectedItem);
-            int kid = Convert.ToInt32(comboKid.SelectedItem);
-            int old = Convert.ToInt32(comboOld.SelectedItem);
-            double salevzr = vzr * (sale);
-            double salekid = kid * (sale - sale * 0.05);
-            double saleold = old * (sale - sale * 0.05);
-            int kol = vzr + kid + old;
-            int bel = 0;
-            if (checkBel.Checked)
-            {
-                bel = kol * 188;
-            }
-            double food = 0;
-            if (checkFood.Checked)
-            {
-                food = kol * (sale * 0.30);
-            }
-            double bag = 0;
-            if (checkBag.Checked)
-            {
-                bag = kol * (sale * 0.01);
-            }
-            costed = salevzr + salekid + saleold + bel + food + bag;
-            if (checkBox1.Checked)
-            {
-                costed = costed * 2;
-            }
-            MessageBox.Show(costed.ToString());
         }
     }
 }

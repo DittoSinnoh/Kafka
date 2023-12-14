@@ -41,5 +41,30 @@ namespace Kafka
             chart1.Series[0].Points.DataBindXY(x, y1);
             chart1.Series[1].Points.DataBindXY(x, y1);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double Xmin = double.Parse(txtXmin.Text);
+            double Xmax = double.Parse(txtXmax.Text);
+            double Step = double.Parse(txtStep.Text);
+            int count = (int)Math.Ceiling((Xmax - Xmin) / Step) + 1;
+            double[] x = new double[count];
+            double[] y1 = new double[count];
+            double[] y2 = new double[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                x[i] = Xmin + Step * i;
+                y1[i] = Math.Sin(x[i]);
+                y2[i] = Math.Cos(x[i]);
+            }
+            chart1.ChartAreas[0].AxisX.Minimum = Xmin;
+            chart1.ChartAreas[0].AxisX.Maximum = Xmax;
+
+            chart1.ChartAreas[0].AxisX.MajorGrid.Interval = Step;
+
+            chart1.Series[0].Points.DataBindXY(x, y1);
+            chart1.Series[1].Points.DataBindXY(x, y1);
+        }
     }
 }

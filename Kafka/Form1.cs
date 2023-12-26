@@ -18,12 +18,13 @@ namespace Kafka
             InitializeComponent();
         }
 
-        string file;
-        List<string> wordBase = new List<string>();
+        string file; // Переменная для хранения имени файла
+        List<string> wordBase = new List<string>(); // Список для хранения слов
         private string topic;
-        int a;
+        int a; // Переменная для подсчёта очнов Игрока 1
         int b;
 
+        // В зависимости от выбранной темы переменной topic заносится соответствующее значение
         private void SetTopic()
         {
             if (radioTown.Checked)
@@ -40,10 +41,13 @@ namespace Kafka
             }
         }
 
+        // Проверка, существует ли слово в файле по выбранноё теме
         private bool CheckIfWordExistsInFile(string word)
         {
-            string[] lines = File.ReadAllLines(topic + ".txt");
-            file = (topic + ".txt");
+            string[] lines = File.ReadAllLines(topic + ".txt"); // Чтение всех строк из файла
+            file = (topic + ".txt"); // Сохранение имени файла
+
+            // Проверка наличия слова в файле
             foreach (string line in lines)
             {
                 if (line.ToLower() == word.ToLower())
@@ -67,15 +71,15 @@ namespace Kafka
 
         private void ent_Click(object sender, EventArgs e)
         {
-            SetTopic();
+            SetTopic(); // Устанавливает текущую тему
             if (player2.Enabled == false)
             {
-                string wordToCheck = player1.Text;
-                bool wordExistsInFile = CheckIfWordExistsInFile(wordToCheck);
+                string wordToCheck = player1.Text; // получить введённое слово от Игрока 1
+                bool wordExistsInFile = CheckIfWordExistsInFile(wordToCheck); // Проверка наличия слова в файле
 
-                if (label2.Text == "")
+                if (label2.Text == "") // Если до этого не вводилось слово, то первый игрок пишет слово на любую букву
                 {
-                    if (wordExistsInFile)
+                    if (wordExistsInFile) // Если слово существует в файле
                     {
                         label2.Text = wordToCheck;
                         player2.Enabled = true;
@@ -92,15 +96,16 @@ namespace Kafka
                 }
                 else
                 {
-                    if (wordToCheck.StartsWith(label2.Text.Substring(label2.Text.Length - 1)))
+                    // Если новое слово начинается на последнюю букву предыдущего слова
+                    if (wordToCheck.StartsWith(label2.Text.Substring(label2.Text.Length - 1))) 
                     {
-                        if (wordExistsInFile)
+                        if (wordExistsInFile) // Если слово существует в файле
                         {
                             label2.Text = wordToCheck;
                             player2.Enabled = true;
                             player1.Enabled = false;
                             label4.Visible = false;
-                            a++;
+                            a++; // Счёт игрока 1
                         }
                         else
                         {
@@ -115,20 +120,21 @@ namespace Kafka
                     }
                 }
             }
-            else if (player1.Enabled == false)
+            else if (player1.Enabled == false) // Если поле ввода для первого слова недоступно
             {
-                string wordToCheck = player2.Text;
-                bool wordExistsInFile = CheckIfWordExistsInFile(wordToCheck);
+                string wordToCheck = player2.Text; // получить введённое слово от Игрока 2
+                bool wordExistsInFile = CheckIfWordExistsInFile(wordToCheck); // Проверка наличия слова в файле
 
+                // Если новое слово начинается на последнюю букву предыдущего слова
                 if (wordToCheck.StartsWith(label2.Text.Substring(label2.Text.Length - 1)))
                 {
-                    if (wordExistsInFile)
+                    if (wordExistsInFile) // Если слово существует в файле
                     {
                         label2.Text = wordToCheck;
                         player2.Enabled = false;
                         player1.Enabled = true;
                         label4.Visible = false;
-                        b++;
+                        b++; // Счёт игрока 1
                     }
                     else
                     {
@@ -148,8 +154,8 @@ namespace Kafka
         {
             if (player2.Enabled == false)
             {
-                string wordToAdd = player1.Text;
-                File.AppendAllText(file, Environment.NewLine + wordToAdd);
+                string wordToAdd = player1.Text; // получить введённое слово от Игрока 1
+                File.AppendAllText(file, Environment.NewLine + wordToAdd); // Добавить слово в файл. Environment представляет сведения о текущей среде
                 label2.Text = wordToAdd;
                 label3.Visible = false;
                 btnYes.Visible = false;
@@ -159,8 +165,8 @@ namespace Kafka
             }
             else if (player1.Enabled == false)
             {
-                string wordToAdd = player2.Text;
-                File.AppendAllText(file, Environment.NewLine + wordToAdd);
+                string wordToAdd = player2.Text; // получить введённое слово от Игрока 2
+                File.AppendAllText(file, Environment.NewLine + wordToAdd); // Добавить слово в файл
                 label2.Text = wordToAdd;
                 label3.Visible = false;
                 btnYes.Visible = false;
